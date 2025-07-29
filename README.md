@@ -14,7 +14,7 @@ export default defineConfig({
 });
 ```
 
-Notice that headers are exposed on JS bundle requests but **not** on the document request which is expected. This means things like [`crossOriginIsolation`](https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated) don't work.
+Notice that headers are exposed on JS bundle requests but **not** on the document request. This differs from Vite which does set the custom headers on the document request. This means things like [`crossOriginIsolation`](https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated) don't work.
 
 ```ts
 console.log("Window Cross Origin Isolation", window.crossOriginIsolated); // Logs `false` since the header is not set on the document
