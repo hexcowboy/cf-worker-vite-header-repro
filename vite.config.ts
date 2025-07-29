@@ -5,6 +5,13 @@ import { cloudflare } from "@cloudflare/vite-plugin";
 
 // https://vite.dev/config/
 export default defineConfig({
-  server: { port: 6001, headers: { Test: "test" } },
+  server: {
+    port: 6001,
+    headers: {
+      Test: "test",
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Cross-Origin-Embedder-Policy": "require-corp",
+    },
+  },
   plugins: [react(), cloudflare()],
 });
